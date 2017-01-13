@@ -11,14 +11,13 @@ class App extends Component {
     this._search = this._search.bind(this);
   }
   _search(term) {
-    const url = `http://api.giphy.com/v1/gifs/search?q=${term.replace(/\s/g, '+')}&api_key=dc6zaTOxFJmzC`;
+    const url = `https://api.giphy.com/v1/gifs/search?q=${term.replace(/\s/g, '+')}&api_key=dc6zaTOxFJmzC`;
 
     fetch(url)
       .then((res) => {
         return res.json();
       }).then((json) => {
         this.setState({ gifs: json.data })
-        console.log(json.data);
       })
 
   }
