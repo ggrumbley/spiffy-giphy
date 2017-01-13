@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SearchBar from './components/SearchBar'
-import GifList from './components/GifList'
+import GifGrid from './components/GifGrid'
 
 class App extends Component {
   constructor(props) {
@@ -25,9 +25,10 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
-        <SearchBar onTermChange={this._search} />
-        <GifList gifs={this.state.gifs} />
+      <div>
+        <h1>Spiffy Giphy</h1>
+        <SearchBar query={this._search} />
+        <GifGrid gifs={this.state.gifs} />
       </div>
     );
   }

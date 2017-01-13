@@ -6,7 +6,6 @@
     "react-scripts": "0.8.5"
   },
   "dependencies": {
-    "bootswatch": "^3.3.7",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-modal": "^1.6.5",
