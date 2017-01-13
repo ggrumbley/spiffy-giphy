@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import SearchBar from './components/SearchBar'
 import GifList from './components/GifList'
-import request from 'superagent'
 
 class App extends Component {
   constructor(props) {
@@ -9,13 +8,19 @@ class App extends Component {
     this.state = {
       gifs: []
     }
+    this._search = this._search.bind(this);
   }
   _search(term) {
-    const url = `http://api.giphy.com/v1/gifs/search?q=${term}&api_key=dc6zaTOxFJmzC`;
+    const url = `http://api.giphy.com/v1/gifs/search?q=${term.replace(/\s/g, '+')}&api_key=dc6zaTOxFJmzC`;
 
-    request.get(url, (err, res) => {
-      console.log({ gifs: res.body.data });
-    });
+    fetch(url)
+      .then((res) => {
+        return res.json();
+      }).then((json) => {
+        this.setState({ gifs: json.data })
+        console.log(json.data);
+      })
+
   }
 
   render() {
