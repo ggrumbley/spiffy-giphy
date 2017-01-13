@@ -12,11 +12,14 @@ class SearchBar extends React.Component {
   }
   render () {
     return (
-      <div>
-        <span className="input-group-addon"><span className="glyphicon glyphicon-search"></span></span>
-        <input className="form-control"
-         onChange={event => this._searchData(event.target.value)} />
+      <div className="search-bar">
+        <form className="search-form">
+          <input type="search"
+          placeholder="Search Giphy..."
+           onChange={event => this._searchData(event.target.value)} />
+        </form>
       </div>
+
     );
   }
 }

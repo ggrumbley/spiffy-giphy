@@ -6,3 +6,4 @@ A small example app to explore Giphy.
 + React
 + Redux
 + Firebase
++ Flex-box and plain CSS for styling
