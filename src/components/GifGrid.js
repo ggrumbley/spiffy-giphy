@@ -1,9 +1,14 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 import Gif from './Gif';
 
 const GifGrid = (props) => {
   const gifItems = props.gifs.map((image) => {
-    return <Gif key={image.id} gif={image} />
+    return (
+      <Gif
+        key={image.id}
+        gif={image}
+        onGifSelect={props.onGifSelect} />
+    );
   });
 
   return (
