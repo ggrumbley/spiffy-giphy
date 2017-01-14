@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import SearchBar from './components/SearchBar'
-import GifGrid from './components/GifGrid'
-import GifModal from './components/GifModal'
+import SearchBar from '../components/SearchBar'
+import GifGrid from '../components/GifGrid'
+import GifModal from '../components/GifModal'
 
 class App extends Component {
   constructor(props) {
@@ -37,7 +37,6 @@ class App extends Component {
       }).then((json) => {
         this.setState({ gifs: json.data })
       })
-
   }
 
   render() {
