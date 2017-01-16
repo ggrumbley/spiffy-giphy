@@ -1,25 +1,21 @@
 import React from 'react'
 
 class SearchBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { term: ''}
-  }
 
-  _searchData(term) {
-    this.setState({term});
+  _query(term) {
     this.props.query(term);
   }
+
   render () {
     return (
       <div className="search-bar">
         <form className="search-form">
           <input type="search"
-          placeholder="Search Giphy..."
-           onChange={event => this._searchData(event.target.value)} />
+                 placeholder="Search Giphy..."
+                 onChange={event => this._query(event.target.value)} />
         </form>
-      </div>
 
+      </div>
     );
   }
 }
