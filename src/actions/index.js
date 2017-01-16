@@ -15,3 +15,16 @@ export function requestGifs(term = null) {
     payload
   }
 }
+
+export function openModal(gif) {
+  return {
+    type: 'OPEN_MODAL',
+    gif
+  }
+}
+
+export function closeModal() {
+  return {
+    type: 'CLOSE_MODAL'
+  }
+}
