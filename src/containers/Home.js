@@ -7,11 +7,10 @@ import SearchBar from '../components/SearchBar'
 import GifGrid from '../components/GifGrid'
 import GifModal from '../components/GifModal'
 
-class App extends React.Component {
+class Home extends React.Component {
   render() {
     return (
       <div>
-        <h1>Spiffy Giphy</h1>
         <SearchBar query={this.props.actions.requestGifs} />
         <GifGrid gifs={ this.props.gifs }
                  onGifSelect={ selectedGif => this.props.actions.openModal({selectedGif})}/>
@@ -37,4 +36,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
