@@ -1,3 +1,4 @@
+import { browserHistory } from 'react-router'
 
 export function requestGifs(term = null) {
   const API_URL = 'https://api.giphy.com/v1/gifs/search?q='
@@ -26,5 +27,19 @@ export function openModal(gif) {
 export function closeModal() {
   return {
     type: 'CLOSE_MODAL'
+  }
+}
+
+export function signInUser() {
+  browserHistory.push('/favorites')
+  return {
+    type: 'SIGN_IN_USER'
+  }
+}
+
+export function signOutUser() {
+  browserHistory.push('/')
+  return {
+    type: 'SIGN_OUT_USER'
   }
 }
