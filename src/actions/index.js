@@ -24,6 +24,34 @@ export function requestGifs(term = null) {
   }
 }
 
+export function fetchFavoritedGifs() {
+  return (dispatch) => {
+    const userUid = Firebase.auth().currentUser.uid
+
+    Firebase.database().ref(userUid).on('value', (snapshot) => {
+      dispatch({
+        type: 'FETCH_FAVORITED_GIFS',
+        payload: snapshot.val()
+      })
+    })
+  }
+}
+export function favoriteGif({selectedGif}) {
+  const userUid = Firebase.auth().currentUser.uid
+  const gifId = selectedGif.id
+
+  return (dispatch) => Firebase.database().ref(userUid).update({
+    [gifId]: selectedGif
+  })
+}
+
+export function unfavoriteGif({selectedGif}) {
+  const userUid = Firebase.auth().currentUser.uid
+  const gifId = selectedGif.id
+
+  return (dispatch) => Firebase.database().ref(userUid).child(gifId).remove()
+}
+
 export function openModal(gif) {
   return {
     type: 'OPEN_MODAL',
