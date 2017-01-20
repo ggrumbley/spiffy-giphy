@@ -1,13 +1,14 @@
 import { createStore, compose, applyMiddleware } from 'redux'
-import ReduxPromise from 'redux-promise'
+import reduxThunk from 'redux-thunk'
 import rootReducer from './reducers/index'
+import * as Actions from './actions'
 
 export default function configureStore(initialState) {
   const store = createStore(
     rootReducer,
     initialState,
     compose (
-      applyMiddleware(ReduxPromise),
+      applyMiddleware(reduxThunk),
       window.devToolsExtension ? window.devToolsExtension() : f => f
 
     )
@@ -20,6 +21,8 @@ export default function configureStore(initialState) {
       store.replaceReducer(nextRootReducer);
     });
   }
+
+  store.dispatch(Actions.verifyAuth())
 
   return store;
 }

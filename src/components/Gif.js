@@ -5,7 +5,7 @@ const Gif = ({gif, onGifSelect}) => {
     <figure className='grid-figure' onClick={() => onGifSelect(gif)}>
       <div className='grid-gif-wrap'>
         <img className='grid-gif'
-              src={gif.images.downsized.url}
+              src={gif.images.fixed_height_small.url}
               alt="Gif"
         />
       </div>

@@ -28,10 +28,10 @@ const validate = (values) => {
 class Signup extends React.Component {
 
   _handleSubmit = (values) => {
-    this.props.signInUser(values)
+    this.props.signUpUser(values)
   }
 
-  renderField = ({ input, label, type, meta: { touched, error } }) => (
+  _renderField = ({ input, label, type, meta: { touched, error } }) => (
     <fieldset className={`form-group ${touched && error ? 'has-error' : ''}`}>
       <label className="control-label">{label}</label>
       <div>
@@ -44,15 +44,25 @@ class Signup extends React.Component {
     </fieldset>
   )
 
+  _renderAuthenticationError() {
+    if (this.props.authenticationError) {
+      return <div className="alert alert-danger">{this.props.authenticationError}</div>
+    }
+    return <div></div>
+  }
+
   render () {
     return (
       <div className="container">
         <div className="col-md-6 col-md-offset-3">
           <h2 className="text-center">Sign Up</h2>
+
+          { this._renderAuthenticationError() }
+
           <form className="form-horizontal" onSubmit={this.props.handleSubmit(this._handleSubmit)}>
-            <Field name="email" type="text" component={this.renderField} label="Email" />
-            <Field name="password" type="password" component={this.renderField} label="Password" />
-            <Field name="passwordConfirmation" type="password" component={this.renderField} label="Password Confirmation" />
+            <Field name="email" type="text" component={this._renderField} label="Email" />
+            <Field name="password" type="password" component={this._renderField} label="Password" />
+            <Field name="passwordConfirmation" type="password" component={this._renderField} label="Password Confirmation" />
 
             <button action="submit" className="btn btn-primary">Sign up</button>
           </form>
@@ -62,7 +72,11 @@ class Signup extends React.Component {
   }
 }
 
-export default connect(null, Actions)(reduxForm({
+function mapStateToProps(state) {
+  return { authenticationError: state.auth.error }
+}
+
+export default connect(mapStateToProps, Actions)(reduxForm({
   form: 'signup',
   validate
 })(Signup));
