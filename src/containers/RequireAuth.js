@@ -1,16 +1,16 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { browserHistory } from 'react-router'
+import React from 'react';
+import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
 
 export default function (WrappedComponent) {
   class Auth extends React.Component {
     componentWillMount() {
       if (!this.props.authenticated) {
-        let _localStorageUser = false
+        let _localStorageUser = false;
 
         for (let key in localStorage) {
           if (key.startsWith("firebase:authUser:")) {
-            _localStorageUser = true
+            _localStorageUser = true;
           }
         }
 
@@ -20,12 +20,12 @@ export default function (WrappedComponent) {
       }
     }
     render () {
-      return <WrappedComponent {...this.props} />
+      return <WrappedComponent {...this.props} />;
     }
   }
 
   function mapStateToProps(state) {
-    return { authenticated: state.auth.authenticated }
+    return { authenticated: state.auth.authenticated };
   }
-  return connect(mapStateToProps)(Auth)
+  return connect(mapStateToProps)(Auth);
 }

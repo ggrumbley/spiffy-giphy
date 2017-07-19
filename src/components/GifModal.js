@@ -1,5 +1,5 @@
-import React from 'react'
-import Modal from 'react-modal'
+import React from 'react';
+import Modal from 'react-modal';
 
 const GifModal = (props) => {
   if (!props.selectedGif) {
@@ -24,4 +24,4 @@ const GifModal = (props) => {
   );
 };
 
-export default GifModal
+export default GifModal;

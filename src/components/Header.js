@@ -1,11 +1,11 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { Link } from 'react-router'
-import * as Actions from '../actions'
+import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router';
+import * as Actions from '../actions';
 
 class Header extends React.Component {
   _signout() {
-    this.props.signOutUser()
+    this.props.signOutUser();
   }
 
   renderAuthLinks() {
@@ -17,7 +17,7 @@ class Header extends React.Component {
         <li className="nav-item" key={2}>
           <a href="#" className="nav-link" onClick={() => this._signout()}>Sign Out</a>
         </li>
-      ]
+      ];
     } else {
       return [
         <li className="nav-item" key={1}>
@@ -26,7 +26,7 @@ class Header extends React.Component {
         <li className="nav-item" key={2}>
           <Link className="nav-link" to="/signup">Sign Up</Link>
         </li>
-      ]
+      ];
     }
   }
 
@@ -51,7 +51,7 @@ class Header extends React.Component {
 function mapStateToProps(state) {
   return {
     authenticated: state.auth.authenticated
-  }
+  };
 }
 
 export default connect(mapStateToProps, Actions)(Header);

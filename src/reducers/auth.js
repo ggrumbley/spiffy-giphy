@@ -1,7 +1,7 @@
 const initialState = {
   authenticated: false,
   error: null
-}
+};
 
 export default function gifs(state = initialState, action) {
   switch (action.type) {
@@ -10,19 +10,19 @@ export default function gifs(state = initialState, action) {
         ...state,
         authenticated: true,
         error: null
-      }
+      };
     case 'SIGN_OUT_USER':
       return {
         ...state,
         authenticated: false,
         error: null
-      }
+      };
     case 'AUTH_ERROR':
       return {
         ...state,
         error: action.payload.message
-      }
+      };
     default:
-      return state
+      return state;
   }
 }

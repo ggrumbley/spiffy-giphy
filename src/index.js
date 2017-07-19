@@ -1,19 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router'
-import { Provider } from 'react-redux'
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Provider } from 'react-redux';
 
-import App from './components/App'
-import Home from './containers/Home'
-import Signup from './containers/Signup'
-import Login from './containers/Login'
-import Favorites from './containers/Favorites'
-import RequireAuth from './containers/RequireAuth'
+import App from './components/App';
+import Home from './containers/Home';
+import Signup from './containers/Signup';
+import Login from './containers/Login';
+import Favorites from './containers/Favorites';
+import RequireAuth from './containers/RequireAuth';
 
-import './styles/_normalize.css'
-import './styles/main.css'
+import './styles/_normalize.css';
+import './styles/main.css';
 
-import configureStore from './store'
+import configureStore from './store';
 
 const store = configureStore();
 

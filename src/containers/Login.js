@@ -1,7 +1,7 @@
-import React from 'react'
-import { Field, reduxForm } from 'redux-form'
-import { connect } from 'react-redux'
-import * as Actions from '../actions'
+import React from 'react';
+import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
+import * as Actions from '../actions';
 
 const validate = (values) => {
   const errors = {};
@@ -9,7 +9,7 @@ const validate = (values) => {
   if (!values.email) {
     errors.email = "Please enter an email.";
   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = 'Invalid email address'
+    errors.email = 'Invalid email address';
   }
 
   if (!values.password) {
@@ -21,7 +21,7 @@ const validate = (values) => {
 
 class Login extends React.Component {
   _handleSubmit = (values) => {
-    this.props.signInUser(values)
+    this.props.signInUser(values);
   }
 
   _renderField = ({ input, label, type, meta: { touched, error } }) => (
@@ -36,9 +36,9 @@ class Login extends React.Component {
 
   _renderAuthenticationError() {
     if (this.props.authenticationError) {
-      return <div className="alert alert-danger">{this.props.authenticationError}</div>
+      return <div className="alert alert-danger">{this.props.authenticationError}</div>;
     }
-    return <div></div>
+    return <div></div>;
   }
 
   render () {
@@ -48,7 +48,7 @@ class Login extends React.Component {
           <h2 className="text-center">Log In</h2>
 
           { this._renderAuthenticationError() }
-          
+
           <form onSubmit={this.props.handleSubmit(this._handleSubmit)}>
             <Field name="email" component={this._renderField} className="form-control" type="text" label="Email"/>
             <Field name="password" component={this._renderField} className="form-control" type="password" label="Password"/>
@@ -59,12 +59,12 @@ class Login extends React.Component {
           </form>
         </div>
       </div>
-    )
+    );
   }
 }
 
 function mapStateToProps(state) {
-  return { authenticationError: state.auth.error }
+  return { authenticationError: state.auth.error };
 }
 
 export default connect(mapStateToProps, Actions)(reduxForm({

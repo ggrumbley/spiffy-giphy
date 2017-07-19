@@ -15,11 +15,11 @@ class Favorites extends React.Component {
     return (
       <div>
         <GifGrid gifs={ this.props.gifs }
-                 onGifSelect={ selectedGif => this.props.actions.openModal({selectedGif}) }
-                 onFavoriteSelect={ selectedGif => this.props.actions.favoriteGif({selectedGif}) }
-                 onFavoriteDeselect={ selectedGif => this.props.actions.unfavoriteGif({selectedGif}) }
-                 isAuthenticated={ this.props.authenticated }
-                 isFavorite={true} />
+                onGifSelect={ selectedGif => this.props.actions.openModal({selectedGif}) }
+                onFavoriteSelect={ selectedGif => this.props.actions.favoriteGif({selectedGif}) }
+                onFavoriteDeselect={ selectedGif => this.props.actions.unfavoriteGif({selectedGif}) }
+                isAuthenticated={ this.props.authenticated }
+                isFavorite={true} />
         <GifModal modalIsOpen={ this.props.modalIsOpen }
                   selectedGif={ this.props.selectedGif }
                   onRequestClose={ () => this.props.actions.closeModal() } />

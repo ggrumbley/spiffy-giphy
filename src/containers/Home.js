@@ -1,11 +1,11 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
+import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import * as Actions from '../actions'
-import SearchBar from '../components/SearchBar'
-import GifGrid from '../components/GifGrid'
-import GifModal from '../components/GifModal'
+import * as Actions from '../actions';
+import SearchBar from '../components/SearchBar';
+import GifGrid from '../components/GifGrid';
+import GifModal from '../components/GifModal';
 
 class Home extends React.Component {
   render() {

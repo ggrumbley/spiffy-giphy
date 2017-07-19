@@ -1,31 +1,31 @@
-import React from 'react'
+import React from 'react';
 
 class Gif extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = { favorited: this.props.isFavorite }
+    super(props);
+    this.state = { favorited: this.props.isFavorite };
   }
 
   favoriteGif() {
-    this.setState({ favorited: true })
-    this.props.onFavoriteSelect(this.props.gif)
+    this.setState({ favorited: true });
+    this.props.onFavoriteSelect(this.props.gif);
   }
 
   unfavoriteGif() {
-    this.setState({ favorited: false })
-    this.props.onFavoriteDeselect(this.props.gif)
+    this.setState({ favorited: false });
+    this.props.onFavoriteDeselect(this.props.gif);
   }
 
   renderFavoriteHeart = () => {
     if (!this.props.isAuthenticated) {
-      return ''
+      return '';
     }
 
     if (this.state.favorited) {
-      return <button className="favorite fa fa-heart" onClick={() => this.unfavoriteGif()} ></button>
+      return <button className="favorite fa fa-heart" onClick={() => this.unfavoriteGif()} ></button>;
     }
 
-    return <button className="favorite fa fa-heart-o" onClick={() => this.favoriteGif()}></button>
+    return <button className="favorite fa fa-heart-o" onClick={() => this.favoriteGif()}></button>;
   }
 
   render() {
@@ -40,8 +40,8 @@ class Gif extends React.Component {
         </div>
         { this.renderFavoriteHeart() }
       </figure>
-    )
+    );
   }
 };
 
-export default Gif
+export default Gif;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Gif from './Gif';
 
 const GifGrid = (props) => {
@@ -22,4 +22,4 @@ const GifGrid = (props) => {
   );
 };
 
-export default GifGrid ;
+export default GifGrid;

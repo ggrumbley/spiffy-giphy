@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 class SearchBar extends React.Component {
 
@@ -9,7 +9,7 @@ class SearchBar extends React.Component {
   render () {
     return (
       <div className="search-bar">
-        <form className="search-form" onSubmit={(e) => {e.preventDefault()}}>
+        <form className="search-form" onSubmit={(e) => e.preventDefault()}>
           <input type="search"
                  placeholder="Search Giphy..."
                  onChange={event => this._query(event.target.value)} />
